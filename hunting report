@@ -1,0 +1,8 @@
+Threat Hunting Report
+Threat Hunting Report:
+On 2025-08-18, the SOC conducted a proactive hunt for unauthorized privilege escalation.
+Logs from Elastic Security were analyzed for Event ID 4672 indicating elevated privileges.
+Suspicious accounts were identified, and T1078 (Valid Accounts) misuse was mapped using MITRE ATT&CK.
+AlienVault OTX was used to cross-reference IOCs, revealing connections from anomalous IPs.
+Findings were documented and escalated to the incident response team, improving detection and prevention.
+This hunt demonstrates hypothesis-driven methodologies and proactive threat identification.
