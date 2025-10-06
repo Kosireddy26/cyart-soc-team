@@ -1,0 +1,3 @@
+Timestamp,SourceIP,Destination,Event,Tool,MITRE
+2025-08-18 14:00:00,192.168.1.102,10.0.0.5:139,Samba exploit attempt,Metasploit,T1210
+2025-08-18 14:03:12,192.168.1.102,10.0.0.5,Process spawn (smbd child),Wazuh,T1210

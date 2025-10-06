@@ -1,70 +1,40 @@
-# Week 2 SOC Project
+# Week 4 - Capstone SOC Incident Response
 
-1.Alert Management Practice
+## Objective
+Simulate a full SOC workflow covering attack simulation, detection, triage, response, automation, RCA, and reporting.
 
-Tools: Google Sheets, Wazuh, TheHive
+## Tools Used
+- Metasploit (Attack Simulation)
+- MITRE Caldera (Adversary Emulation)
+- Wazuh SIEM (Detection & Alerting)
+- CrowdSec (Response & Blocking)
+- TheHive (Case Management & SOAR Automation)
+- Elastic Security (Metrics & Dashboards)
+- Google Docs/Sheets (Reports & Documentation)
+- Draw.io (Fishbone Diagrams)
 
-Created an alert classification table mapping alerts to MITRE ATT&CK techniques.
-Simulated alerts in Google Sheets and calculated CVSS scores for prioritization.
-Created a Wazuh dashboard visualizing alert priorities.
-Drafted incident ticket in TheHive:
+## Workflow Steps
+1. Attack Simulation: Metasploit (`exploit/multi/samba/usermap_script`) vs Metasploitable2.
+2. Detection & Triage: Wazuh detects Samba exploit -> alert forwarded to TheHive. Mapped to MITRE T1210.
+3. Response & Containment: CrowdSec blocks attacker IP `192.168.1.102`. Verify via ping.
+4. SOAR Automation: Playbook auto-creates case & blocks IP.
+5. RCA: 5 Whys and Fishbone Diagram (Draw.io).
+6. Metrics: Dashboard for MTTD, MTTR, Dwell Time.
+7. Reporting: Capstone Report, Stakeholder Briefing, Attack Logs, Visuals.
 
-Title: [Critical] LockBit Ransomware on DB-SQL01
+## Folder Structure
+```
+Week_4/
+│── README.md
+│── Capstone_Report.pdf
+│── Stakeholder_Briefing.pdf
+│── Attack_Logs.pdf
+│── Wazuh_Alert.png
+│── CrowdSec_Block.png
+│── Dashboard.png
+│── RCA_Fishbone.png
+```
 
-Indicators: lockbit_payload.exe, IP 203.0.113.45
-Priority: Critical
-Assignee: SOC Analyst
-Escalated a Critical alert via a 100-word email to Tier 2 SOC.
-
-
-2.Response Documentation (Phishing Incident)
-
-Tools Used: Google Docs, Draw.io
-
-Steps Completed (Incident Response Lifecycle – Sept 9, 2025):
-
-Preparation: Verified playbooks and user reporting.
-
-Identification: User reported phishing email; headers and link analyzed.
-
-Timestamp	Action
-2025-09-09 09:15:00	User reported suspicious email
-2025-09-09 09:25:00	SOC verified email headers and link
-
-Containment: Isolated HR-WS07, quarantined email, blocked malicious link.
-Eradication: Deleted email from backups and mail server; updated rules.
-Recovery: Restored workstation access; monitored logs.
-Lessons Learned: Enhance mail filtering and conduct phishing awareness campaigns.
-Post-Mortem :
-Early reporting prevented credential theft. Mail gateway rules were improved to detect impersonation attacks. Continuous user training is essential to strengthen organizational security and reduce response time for future phishing attempts.
-
-3️. Alert Triage Practice
-
-Tools Used: Wazuh, VirusTotal, AlienVault OTX
-
-Steps Completed:
-
-Analyzed mock alerts and assigned priorities:
-Validated malicious IPs with AlienVault OTX & VirusTotal.
-Documented IOC validation in 50-word summary. 
-
-4. Evidence Preservation
-
-Tools Used: Velociraptor, FTK Imager
-
-Steps Completed:
-
-Collected network connections from DB-SQL01 using Velociraptor and saved as CSV.
-Acquired memory dump DB-SQL01_memory_2025-09-09.raw and generated SHA256 hash.
-
-5.Capstone Project: Full Alert-to-Response Cycle
-
-Tools Used: Metasploit, Wazuh, CrowdSec, Google Docs
-
-Steps Completed:
-
-Exploit simulated vsftpd backdoor on DEV-Linux01 using Metasploit.
-Wazuh detected VSFTPD exploit and reverse shell activity.
-Response: Isolated VM, blocked IP in CrowdSec, verified ping test.
-Reporting: 200-word SANS-style report with Executive Summary, Timeline, Recommendations.
-Stakeholder Briefing: 100-word non-technical summary delivered.
+## Notes
+All artifacts are realistic-styled mockups intended for assignment submission. Timestamps in logs are simulated for demonstration.
+Prepared on 2025-10-06 10:49:23 UTC
